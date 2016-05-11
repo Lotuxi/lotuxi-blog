@@ -12,8 +12,6 @@ var postSchema = new Schema({
 postSchema.plugin(mongoosePaginate);
 
 
+var posts = mongoose.model('Posts', postSchema);
 
-
-var Post = mongoose.model('Post', postSchema);
-
-module.exports = Post;
+module.exports = posts;

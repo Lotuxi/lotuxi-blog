@@ -5,7 +5,7 @@ block body
 
     .container
         .blog-post
-            form(method="postSchema")
+            form(action='/saveposts', method="post")
                 div
                     span Title :
                     input(type="text", name="title", id="blogpost")
@@ -13,4 +13,4 @@ block body
                     span Body :
                     textarea( name="body", rows=20, id="editArticleBody")
                 div#editArticleSubmit
-                    input(type="submit", value="Send")
+                    input(type="submit", name="new post", value="Send")

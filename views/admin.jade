@@ -1,0 +1,16 @@
+extends layout
+
+block body
+    h1 Write a new post.
+
+    .container
+        .blog-post
+            form(method="postSchema")
+                div
+                    span Title :
+                    input(type="text", name="title", id="blogpost")
+                div
+                    span Body :
+                    textarea( name="body", rows=20, id="editArticleBody")
+                div#editArticleSubmit
+                    input(type="submit", value="Send")

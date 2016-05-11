@@ -1,0 +1,15 @@
+extends layout
+block content
+    h1 Hi Brittany! Login here!
+    h2 Everyone else... SHOO!
+    if message.length > 0
+        p=message
+
+    form(action='/login' method='post')
+        label username
+        input(type='text' name='username' required)
+        br
+        label password
+        input(type='password' name='password' required)
+        br
+        input(type='submit' name='login' vaule='Login')

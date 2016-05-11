@@ -1,16 +1,24 @@
 extends layout
-
 block body
-    h1 Write a new post.
+    .blog-masthead
+        .container
+            nav.blog-nav
+                a.blog-nav-item.active(href='/') Home
+                a.blog-nav-item(href='/about') About
+                a.blog-nav-item(href='/contact') Contact
+    .container
+        .blog-header
+            h1.blog-title New Post
 
     .container
         .blog-post
-            form(action='/saveposts', method="post")
-                div
-                    span Title :
-                    input(type="text", name="title", id="blogpost")
-                div
-                    span Body :
-                    textarea( name="body", rows=20, id="editArticleBody")
-                div#editArticleSubmit
-                    input(type="submit", name="new post", value="Send")
+            .col-sm-8.blog-main
+                form(action='/saveposts', method="post")
+                    div
+                        label Title :
+                        input(type="text", name="title", id="blogpost")
+                    div
+                        label Body :
+                        textarea( name="body", rows=20, id="editArticleBody")
+                    div#editArticleSubmit
+                        input(type="submit", name="new post", value="Send")

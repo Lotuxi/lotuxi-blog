@@ -3,33 +3,21 @@ block body
     .blog-masthead
         .container
             nav.blog-nav
-                a.blog-nav-item.active(href='/') Blog
+                a.blog-nav-item.active(href='/') Home
                 a.blog-nav-item(href='/about') About
                 a.blog-nav-item(href='/contact') Contact
     .container
         .blog-header
-            h1= 'lotuxi.me'
+            h1.blog-title Lotuxi.me
         .row
             .col-sm-8.blog-main
-                    .blog-post
-                        for posts in post
-                            h2.blog-post-title #{posts.title}
-                            p.blog-post-meta #{posts.created_at}
+                .blog-post
+                for posts in postly
+                    h2.blog-post-title #{posts.title}
+                    p.blog-post-meta #{posts.created_at}
+                    p #{posts.body}
 
-                    .blog-post
-                        h2.blog-post-title Another blog post
-                        p.blog-post-meta
-                            | December 23, 2013 by
-                            a(href='#') Jacob
-                        p
-                            | Cum sociis natoque penatibus et magnis
-                            a(href='#') dis parturient montes
-                            | , nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.
 
-                    .blog-post
-                        h2.blog-post-title New feature
-                        p.blog-post-meta
-                        | December 14, 2013 by
 
                 nav
                     ul.pager
@@ -39,51 +27,16 @@ block body
                             a(href='#') Next
             .col-sm-3.col-sm-offset-1.blog-sidebar
                 .sidebar-module.sidebar-module-inset
-                    h4 About
+                    h4 What is this page?
                     p
-                        | Etiam porta
-                        em sem malesuada magna
-                        |  mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+                        | This blog is for me to share my thoughts and experiences with anyone and everyone.
+                        | If you want to learn more about me, check out the About page.
+
+
                 .sidebar-module
                     h4 Twitter
-                    <a class="twitter-timeline" href="https://twitter.com/Lotuxi" data-widget-id="729835391717511168">Tweets by @Lotuxi</a>
-                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                .sidebar-module
-                    h4 Archives
-                    ol.list-unstyled
-                        li
-                            a(href='#') March 2014
-                        li
-                            a(href='#') February 2014
-                        li
-                            a(href='#') January 2014
-                        li
-                            a(href='#') December 2013
-                        li
-                            a(href='#') November 2013
-                        li
-                            a(href='#') October 2013
-                        li
-                            a(href='#') September 2013
-                        li
-                            a(href='#') August 2013
-                        li
-                            a(href='#') July 2013
-                        li
-                            a(href='#') June 2013
-                        li
-                            a(href='#') May 2013
-                        li
-                            a(href='#') April 2013
-                .sidebar-module
-                    h4 Elsewhere
-                    ol.list-unstyled
-                        li
-                            a(href='#') GitHub
-                        li
-                            a(href='#') Twitter
-                        li
-                        a(href='#') Facebook
+                        <a class="twitter-timeline" href="https://twitter.com/Lotuxi" data-widget-id="729835391717511168">Tweets by @Lotuxi</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     footer.blog-footer
         p
             | Blog template built for

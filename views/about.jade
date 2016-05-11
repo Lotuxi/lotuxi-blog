@@ -1,1 +1,13 @@
 extends layout
+block body
+    .blog-masthead
+        .container
+            nav.blog-nav
+                a.blog-nav-item(href='/') Home
+                a.blog-nav-item.active(href='/about') About
+                a.blog-nav-item(href='/contact') Contact
+    .container
+        .blog-post-title About Brittany
+        img(style='border:5px solid black;', src='images/britt.jpg', height='200', width='200')
+    .container
+        .blog-description I was born and raised in the middle of Minnesota in a small town. I have always had a passion for technology and the arts. I currently work in Minneapolis as a QA Engineer for a software company.

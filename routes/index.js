@@ -3,7 +3,6 @@ var router = express.Router();
 
 var passport = require('passport');
 var posts = require('../models/posts.js'); //specify post model
-var mongoosePaginate = require('mongoose-paginate');
 var flash = require('connect-flash');
 
 
@@ -42,19 +41,21 @@ router.post('/saveposts', isLoggedIn, function(req, res, next) {
             return next(err);
         }
         res.status(201);//created
-        return res.redirect('/admin');
+        return res.redirect('/');
     });
 });
 
+//TODO add post deletion
 
 
-posts.paginate({}, { page: 5, limit: 10 }, function(err, result) {
-    // result.docs
-    // result.total
-    // result.limit - 10
-    // result.page - 3
-    // result.pages
-});
+//TODO add pagination
+//posts.paginate({}, { page: 5, limit: 10 }, function(err, result) {
+//    // result.docs
+//    // result.total
+//    // result.limit - 10
+//    // result.page - 3
+//    // result.pages
+//});
 
 //get login page
 router.get('/login', function(req, res, next) {
@@ -67,6 +68,15 @@ router.post('/login', passport.authenticate('local-login', {
     failureFlash: true
 } ));
 
+//get About page
+router.get('/about', function(req, res) {
+    res.render('about')
+});
+
+//get contact page
+router.get('/contact', function(req, res) {
+    res.render('contact')
+});
 
 //Get Admin
 router.get('/admin', isLoggedIn, function(req, res, next) {
@@ -81,11 +91,11 @@ router.get('/logout', function(req, res, next) {
 
 //get signup page
 router.get('/signup', function(req, res, next) {
-    res.render('./admin', {message : req.flash('signupMessage') } )
+    res.render('signup', {message : req.flash('signupMessage') } )
 });
 
 router.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: './admin',
+    successRedirect: './login',
     failureRedirect: '/signup',
     failureFlash :true
 }));
